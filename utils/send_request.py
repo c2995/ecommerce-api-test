@@ -3,11 +3,12 @@ import logging
 import allure
 import pymysql
 import requests
-from email_validator import DEFAULT_TIMEOUT
+
 
 from config.config import *
+from utils.analyse_case import close_upload_files
 
-SESSION = requests.Session   
+SESSION = requests.Session()
 
 DEFAULT_TIMEOUT = (5,10)
 
@@ -19,8 +20,9 @@ def send_http_request(**request_data):
     last_error = None
     for attempt in range(RETRY_TIMES + 1):  # ③ 最多试 3 次
         try:
-            res = requests.request(**request_data)
+            res = SESSION.request(**request_data)
             logging.info(f"3.http请求响应：{res}")
+            close_upload_files(request_data.get("files"))
             return res
         except(requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
             last_error = e

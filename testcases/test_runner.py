@@ -29,7 +29,7 @@ class TestRunner:
 
         allure_init(case)
 
-        logging.info(f"1.编号：{case["id"]}  模块：{case["feature"]}  场景：{case["story"]}  标题：{case["title"]}")
+        logging.info(f"1.编号：{case['id']}  模块：{case['feature']}  场景：{case['story']}  标题：{case['title']}")
 
         #1解析请求数据
         request_data = http_case(case)
