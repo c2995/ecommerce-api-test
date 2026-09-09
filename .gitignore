@@ -1,0 +1,19 @@
+# Python 缓存与虚拟环境
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 测试生成物
+.pytest_cache/
+report/
+allure-results/
+allure-report/
+log/
+
+# 环境变量与密钥
+.env
+
+# IDE 配置
+.idea/
+.vscode/
