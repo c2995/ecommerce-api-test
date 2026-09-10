@@ -29,7 +29,7 @@ jobs:
           python-version: '3.12'
 
       - name: 安装依赖
-        run: pip install pytest requests allure-pytest pytest-rerunfailures python-dotenv pymysql jsonpath jinja2 pytest-ordering pytest-html pytest-metadata
+        run: pip install -r requirements.txt
 
       - name: 安装 Allure 命令行
         run: |
