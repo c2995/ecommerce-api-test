@@ -29,7 +29,16 @@ jobs:
           python-version: '3.12'
 
       - name: 安装依赖
-        run: pip install pytest requests allure-pytest pytest-rerunfailures python-dotenv pymysql jsonpath jinja2 pytest-ordering pytest-html pytest-metadata allure-commandline
+        run: pip install pytest requests allure-pytest pytest-rerunfailures python-dotenv pymysql jsonpath jinja2 pytest-ordering pytest-html pytest-metadata
+
+      - name: 安装 Allure 命令行
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre-headless
+          wget -q https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.tgz
+          tar -xzf allure-2.30.0.tgz
+          echo "$GITHUB_WORKSPACE/allure-2.30.0/bin" >> $GITHUB_PATH
+
 
       - name: 生成 .env
         run: |
