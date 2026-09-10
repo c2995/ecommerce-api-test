@@ -1,0 +1,57 @@
+name: 接口自动化回归
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: root123
+          MYSQL_DATABASE: wisdom_shop_api
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装依赖
+        run: pip install pytest requests allure-pytest pytest-rerunfailures python-dotenv pymysql jsonpath jinja2 pytest-ordering pytest-html pytest-metadata allure-commandline
+
+      - name: 生成 .env
+        run: |
+          echo "BASEURL=${{ secrets.BASEURL }}" > .env
+          echo "EXCEL_FILE=./data/测试用例_200条_fix.xlsx" >> .env
+          echo "SHEET_NAME=Sheet1" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=wisdom_shop_api" >> .env
+          echo "DB_USER=root" >> .env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+
+      - name: 运行接口测试
+        run: pytest -vs ./testcases/test_runner.py --alluredir=./report/json_report --clean-alluredir
+
+      - name: 生成 Allure 报告
+        run: allure generate ./report/json_report -o ./report/html_report --clean
+        if: always()
+
+      - name: 上传报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-report
+          path: report/html_report
