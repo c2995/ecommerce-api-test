@@ -51,6 +51,13 @@ jobs:
           echo "DB_USER=root" >> .env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
 
+      - name: 初始化数据库表结构和基础数据
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-mysql-client
+          mysql -h127.0.0.1 -uroot -proot123 wisdom_shop_api < data/init.sql
+
+
       - name: 运行接口测试
         run: pytest -vs ./testcases/test_runner.py --alluredir=./report/json_report --clean-alluredir
 
