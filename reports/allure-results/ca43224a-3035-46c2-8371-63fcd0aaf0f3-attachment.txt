@@ -1,0 +1,5 @@
+[32mINFO    [0m root:test_runner.py:27 全局变量值{'CODE': '050882'}
+[32mINFO    [0m root:test_runner.py:32 1.编号：2  模块：认证登录  场景：获取图形验证码  标题：图形验证码
+[32mINFO    [0m root:analyse_case.py:60 2.解析数据：{'method': 'get', 'url': 'http://localhost:3000/api/auth/captcha/image', 'headers': None, 'params': None, 'data': None, 'json': None, 'files': None}
+[32mINFO    [0m root:send_request.py:24 3.http请求响应：<Response [200]>
+[32mINFO    [0m root:asserts.py:12 4.http响应断言内容: 实际结果【success】 == 预期结果【success】

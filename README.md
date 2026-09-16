@@ -56,6 +56,9 @@ pytest --alluredir=reports/allure-results
 
 allure generate reports/allure-results -o docs/allure-report --clean
 
+## 测试报告
+- Allure 报告（在线查看）：https://你的用户名.github.io/ecommerce-api-test/allure-report/
+
 
 
 > 注：用例依赖本地部署的被测系统与数据库，属于接口自动化测试的正常前置条件。

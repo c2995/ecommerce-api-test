@@ -7,8 +7,6 @@ venv/
 # 测试生成物
 .pytest_cache/
 report/
-allure-results/
-allure-report/
 log/
 
 # 环境变量与密钥
