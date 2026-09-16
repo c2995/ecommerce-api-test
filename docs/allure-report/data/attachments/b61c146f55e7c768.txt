@@ -1,0 +1,5 @@
+[32mINFO    [0m root:test_runner.py:27 全局变量值{'CODE': '827765', 'TOKEN': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm1vYmlsZSI6IjEzODAwMDAwMDAyIiwiaWF0IjoxNzg5NTQ3NDk4LCJleHAiOjE3OTAxNTIyOTh9.OG30KKNE06bk_WlyVhTtS1qE15hLRzNAWFHPiYhrin0', 'USER_ID': 2, 'ORDER_ID': 978, 'ORDER_NO': '20260916163138486504', 'REFUND_ID': 46, 'PRODUCT_ID': 187, 'ORDER_ID_C': 979, 'ORDER_ID_B': 980}
+[32mINFO    [0m root:test_runner.py:32 1.编号：139  模块：订单管理  场景：参数校验  标题：提交订单-地址不存在
+[32mINFO    [0m root:analyse_case.py:60 2.解析数据：{'method': 'post', 'url': 'http://localhost:3000/api/orders', 'headers': {'Access-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm1vYmlsZSI6IjEzODAwMDAwMDAyIiwiaWF0IjoxNzg5NTQ3NDk4LCJleHAiOjE3OTAxNTIyOTh9.OG30KKNE06bk_WlyVhTtS1qE15hLRzNAWFHPiYhrin0'}, 'params': None, 'data': None, 'json': {'mode': 'buyNow', 'goodsId': 8, 'goodsSkuId': 26, 'goodsNum': 1, 'addressId': 99999}, 'files': None}
+[32mINFO    [0m root:send_request.py:24 3.http请求响应：<Response [200]>
+[32mINFO    [0m root:asserts.py:12 4.http响应断言内容: 实际结果【500】 == 预期结果【500】

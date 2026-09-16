@@ -1,0 +1,6 @@
+[32mINFO    [0m root:test_runner.py:27 全局变量值{'CODE': '050882', 'TOKEN': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm1vYmlsZSI6IjEzODAwMDAwMDAyIiwiaWF0IjoxNzg5NTQ3NDk4LCJleHAiOjE3OTAxNTIyOTh9.OG30KKNE06bk_WlyVhTtS1qE15hLRzNAWFHPiYhrin0', 'USER_ID': 2, 'ORDER_ID': 978, 'ORDER_NO': '20260916163138486504'}
+[32mINFO    [0m root:test_runner.py:32 1.编号：37  模块：订单管理  场景：确认收货  标题：确认收货
+[32mINFO    [0m root:analyse_case.py:60 2.解析数据：{'method': 'post', 'url': 'http://localhost:3000/api/orders/903/receipt', 'headers': {'Access-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm1vYmlsZSI6IjEzODAwMDAwMDAyIiwiaWF0IjoxNzg5NTQ3NDk4LCJleHAiOjE3OTAxNTIyOTh9.OG30KKNE06bk_WlyVhTtS1qE15hLRzNAWFHPiYhrin0'}, 'params': None, 'data': None, 'json': None, 'files': None}
+[32mINFO    [0m root:send_request.py:24 3.http请求响应：<Response [200]>
+[32mINFO    [0m root:asserts.py:12 4.http响应断言内容: 实际结果【200】 == 预期结果【200】
+[32mINFO    [0m root:asserts.py:21 4.jdbc响应断言内容: 实际结果【40】 == 预期结果【40】
