@@ -1,0 +1,13 @@
+base\_url: "http://127.0.0.1:8080"
+
+database:
+
+&#x20; host: "127.0.0.1"
+
+&#x20; port: 3306
+
+&#x20; user: "root"
+
+&#x20; password: "your\_password"
+
+&#x20; db: "你的库名"
