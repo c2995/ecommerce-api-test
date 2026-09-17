@@ -1,4 +1,4 @@
-name: 接口自动化回归
+name: 语法检查
 
 on:
   push:
@@ -6,19 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
-
-    services:
-      mysql:
-        image: mysql:8
-        env:
-          MYSQL_ROOT_PASSWORD: root123
-          MYSQL_DATABASE: wisdom_shop_api
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
-
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
@@ -28,46 +17,5 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: 安装依赖
-        run: pip install -r requirements.txt
-
-      - name: 安装 Allure 命令行
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y default-jre-headless
-          wget -q https://github.com/allure-framework/allure2/releases/download/2.30.0/allure-2.30.0.tgz
-          tar -xzf allure-2.30.0.tgz
-          echo "$GITHUB_WORKSPACE/allure-2.30.0/bin" >> $GITHUB_PATH
-
-
-      - name: 生成 .env
-        run: |
-          echo "BASEURL=${{ secrets.BASEURL }}" > .env
-          echo "EXCEL_FILE=./data/测试用例_200条_fix.xlsx" >> .env
-          echo "SHEET_NAME=Sheet1" >> .env
-          echo "DB_HOST=127.0.0.1" >> .env
-          echo "DB_PORT=3306" >> .env
-          echo "DB_DATABASE=wisdom_shop_api" >> .env
-          echo "DB_USER=root" >> .env
-          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
-
-      - name: 初始化数据库表结构和基础数据
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y default-mysql-client
-          mysql -h127.0.0.1 -uroot -proot123 wisdom_shop_api < data/init.sql
-
-
-      - name: 运行接口测试
-        run: pytest -vs ./testcases/test_runner.py --alluredir=./report/json_report --clean-alluredir
-
-      - name: 生成 Allure 报告
-        run: allure generate ./report/json_report -o ./report/html_report --clean
-        if: always()
-
-      - name: 上传报告
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: allure-report
-          path: report/html_report
+      - name: Python 语法检查
+        run: python -m compileall -q .

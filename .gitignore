@@ -7,10 +7,12 @@ venv/
 # 测试生成物
 .pytest_cache/
 report/
+reports/
 log/
 
 # 环境变量与密钥
 .env
+config.local.yaml
 
 # IDE 配置
 .idea/

@@ -1,5 +1,0 @@
-[32mINFO    [0m root:test_runner.py:27 全局变量值{'CODE': '050882', 'TOKEN': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm1vYmlsZSI6IjEzODAwMDAwMDAyIiwiaWF0IjoxNzg5NTQ3NDk4LCJleHAiOjE3OTAxNTIyOTh9.OG30KKNE06bk_WlyVhTtS1qE15hLRzNAWFHPiYhrin0', 'USER_ID': 2}
-[32mINFO    [0m root:test_runner.py:32 1.编号：13  模块：收货地址  场景：修改地址  标题：修改地址
-[32mINFO    [0m root:analyse_case.py:60 2.解析数据：{'method': 'put', 'url': 'http://localhost:3000/api/addresses/3', 'headers': {'Access-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm1vYmlsZSI6IjEzODAwMDAwMDAyIiwiaWF0IjoxNzg5NTQ3NDk4LCJleHAiOjE3OTAxNTIyOTh9.OG30KKNE06bk_WlyVhTtS1qE15hLRzNAWFHPiYhrin0'}, 'params': None, 'data': {'name': '张三改', 'phone': '13800000001', 'province': '陕西省', 'city': '西安市', 'district': '雁塔区', 'detail': '更新地址', 'isDefault': 0}, 'json': {'consignee': '李四', 'mobile': '13800000002', 'province': '陕西省', 'city': '西安市', 'district': '雁塔区', 'detail': '科技路 100 号', 'isDefault': 0}, 'files': None}
-[32mINFO    [0m root:send_request.py:24 3.http请求响应：<Response [200]>
-[32mINFO    [0m root:asserts.py:12 4.http响应断言内容: 实际结果【200】 == 预期结果【200】
